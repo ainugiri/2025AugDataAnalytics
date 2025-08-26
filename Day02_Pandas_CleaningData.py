@@ -36,5 +36,15 @@ print(df3)
 
 print(df3['DasID'].duplicated())    # To check on DASID Column
 
-df3 = df3.drop_duplicates(subset=['DasID'],keep='last')  # drop duplicates based on DasID column
+df3 = df3.drop_duplicates(subset=['DasID'],keep='first')  # drop duplicates based on DasID column
+print(df3)
+
+df3['Age'] = df3['Age'].astype(int) # converting the datatype of Age column to int
+print(df3)
+
+df3[['Name','City']] = df3[['Name','City']].apply(lambda x: x.str.upper())
+print(df3)
+
+
+df3['City'].replace({'NA':'MANGLORE'}, inplace=True)
 print(df3)
